@@ -95,6 +95,15 @@ function useRealGitIgnore() {
 	});
 }
 
+async function initGit() {
+	const initResult = await executeCommand('git init');
+	write(initResult);
+	const addResult = await executeCommand('git add -A');
+	write(addResult);
+	const commitResult = await executeCommand('git commit -m "Using template https://github.com/rblackman/ts-react-spa-boilerplate"');
+	write(commitResult);
+}
+
 async function handleGit() {
 	const gitPath = './.git';
 	const hasGit = fs.existsSync(gitPath);
@@ -112,18 +121,11 @@ async function handleGit() {
 			deleteFolderRecursive(gitPath);
 		}
 		await useRealGitIgnore();
-
-		const initResult = await executeCommand('git init');
-		write(initResult);
-		const addResult = await executeCommand('git add -A');
-		write(addResult);
-		const commitResult = await executeCommand('git commit -m "Using template https://github.com/rblackman/ts-react-spa-boilerplate"');
-		write(commitResult);
-
+		return true;
 	} else {
 		write('Not touching git');
+		return false;
 	}
-
 }
 
 function writeSettings(newSettings) {
@@ -161,11 +163,16 @@ async function configWebpack() {
 	process.stdin.setEncoding('utf8');
 	write('\nBeginning installation...\n');
 
-	await handleGit();
+	const newGit = await handleGit();
 
 	await deleteFileInCurrentDir('install.js');
+	await deleteFileInCurrentDir('.npmrc');
 
 	await configWebpack();
+
+	if (newGit) {
+		await initGit();
+	}
 
 	write('done', 'blue');
 	process.exit(0);
