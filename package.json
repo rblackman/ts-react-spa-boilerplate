@@ -8,12 +8,9 @@
 		"url": "https://github.com/rblackman/ts-react-spa-boilerplate/issues"
 	},
 	"dependencies": {
-		"chalk": "^2.4.2",
-		"compare-versions": "^3.5.1",
 		"react": "^16.9.0",
 		"react-dom": "^16.9.0",
-		"react-router-dom": "^5.0.1",
-		"shelljs": "^0.8.3"
+		"react-router-dom": "^5.0.1"
 	},
 	"description": "Boilerplate for creating a React SPA with TypeScript.",
 	"devDependencies": {
@@ -50,7 +47,12 @@
 	},
 	"homepage": "https://github.com/rblackman/ts-react-spa-boilerplate",
 	"keywords": [
-		"boilerplate"
+		"boilerplate",
+		"typescript",
+		"react",
+		"react-router",
+		"babel",
+		"webpack"
 	],
 	"license": "Apache-2.0",
 	"main": "index.js",
@@ -63,7 +65,7 @@
 	"scripts": {
 		"build:dev": "cross-env NODE_ENV=development webpack --mode development --color",
 		"build:prod": "cross-env NODE_ENV=production webpack --mode production --color",
-		"init": "npm install shelljs compare-versions chalk --no-save && node ./installworking.js && npm remove shelljs compare-versions chalk",
+		"install": "npm install chalk --no-save && node ./install.js && npm remove chalk",
 		"start:dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --color",
 		"start:prod": "cross-env NODE_ENV=production webpack-dev-server --mode production --color"
 	},

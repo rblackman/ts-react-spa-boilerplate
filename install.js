@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 "use strict";
+
 function write(text, color, newLine) {
 	if (color === 'red') {
 		process.stdout.write(chalk.red(text));
@@ -123,7 +124,6 @@ async function handleGit() {
 	}
 
 }
-
 
 (async () => {
 	process.stdin.resume();
