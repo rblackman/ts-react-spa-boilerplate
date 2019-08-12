@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const settings = require('./webpack.settings.json');
 
 "use strict";
 
@@ -125,6 +126,36 @@ async function handleGit() {
 
 }
 
+function writeSettings(newSettings) {
+	return new Promise((resolve, reject) => {
+		const json = JSON.stringify(newSettings, null, '\t');
+		fs.writeFile('./webpack.settings.json', json, err => {
+			if (err) {
+				reject(new Error(err));
+			} else {
+				resolve();
+			}
+		});
+	});
+}
+
+async function configWebpack() {
+	const outDirectory = await ask('Output directory', settings.output.directory)
+	settings.output.directory = outDirectory;
+
+	const title = await ask('HTML document title', settings.html.title)
+	settings.html.title = title;
+
+	const description = await ask('HTML meta description', settings.html.meta.description)
+	settings.html.meta.description = description;
+
+	const port = await ask('dev port', settings.devServer.port);
+	settings.devServer.port = port;
+
+	await writeSettings(settings);
+
+}
+
 (async () => {
 	process.stdin.resume();
 	process.stdin.setEncoding('utf8');
@@ -133,6 +164,8 @@ async function handleGit() {
 	await handleGit();
 
 	await deleteFileInCurrentDir('install.js');
+
+	await configWebpack();
 
 	write('done', 'blue');
 	process.exit(0);
