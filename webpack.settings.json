@@ -1,0 +1,22 @@
+{
+	"devServer": {
+		"host": "localhost",
+		"port": "3000"
+	},
+	"html": {
+		"favicon": "src/image/favicon.ico",
+		"filename": "index.html",
+		"meta": {
+			"description": "Boilerplate for creating a React SPA with TypeScript."
+		},
+		"template": "src/html/index.html",
+		"title": "ts-react-spa-boilerplate"
+	},
+	"input": {
+		"entry": "/src/ts/index.tsx"
+	},
+	"output": {
+		"directory": "dist",
+		"file": "index.js"
+	}
+}

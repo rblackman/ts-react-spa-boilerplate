@@ -165,3 +165,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#REMOVE
+yarn.lock
+dist

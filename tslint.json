@@ -1,0 +1,37 @@
+{
+	"extends": [
+		"tslint:recommended",
+		"tslint-react"
+	],
+	"rules": {
+		"interface-name": [
+			true,
+			"never-prefix"
+		],
+		"jsx-boolean-value": [
+			"error",
+			"never"
+		],
+		"jsx-no-multiline-js": [
+			"error",
+			"never"
+		],
+		"quotemark": [
+			true,
+			"single",
+			"jsx-double"
+		],
+		"indent": [
+			true,
+			"tabs",
+			1
+		],
+		"trailing-comma": [
+			true,
+			{
+				"multiline": "never",
+				"singleline": "never"
+			}
+		]
+	}
+}
