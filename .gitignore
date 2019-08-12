@@ -168,4 +168,5 @@ $RECYCLE.BIN/
 
 #REMOVE
 yarn.lock
+package-lock.json
 dist
