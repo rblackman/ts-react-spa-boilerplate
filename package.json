@@ -1,51 +1,29 @@
 {
-	"author": "Ryan Blackman <rblackman24@gmail.com>",
-	"dependencies": {
-		"react": "^16.9.0",
-		"react-dom": "^16.9.0",
-		"react-router-dom": "^5.0.1"
+	"author": {
+		"email": "rblackman24@gmail.com",
+		"name": "Ryan Blackman",
+		"url": "https://github.com/rblackman"
+	},
+	"bugs": {
+		"url": "https://github.com/rblackman/ts-react-spa-boilerplate/issues"
 	},
 	"description": "Boilerplate for creating a React SPA with TypeScript.",
-	"devDependencies": {
-		"@babel/core": "^7.5.5",
-		"@babel/plugin-proposal-class-properties": "^7.5.5",
-		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-		"@babel/plugin-transform-modules-commonjs": "^7.5.0",
-		"@babel/preset-env": "^7.5.5",
-		"@babel/preset-react": "^7.0.0",
-		"@babel/preset-typescript": "^7.3.3",
-		"@types/react": "^16.9.1",
-		"@types/react-dom": "^16.8.5",
-		"@types/react-router-dom": "^4.3.4",
-		"@types/webpack-env": "^1.14.0",
-		"babel-core": "^6.26.3",
-		"babel-loader": "^8.0.6",
-		"cross-env": "^5.2.0",
-		"css-loader": "^3.2.0",
-		"file-loader": "^4.2.0",
-		"html-webpack-plugin": "^3.2.0",
-		"node-sass": "^4.12.0",
-		"react-hot-loader": "^4.12.10",
-		"sass-loader": "^7.2.0",
-		"source-map-loader": "^0.2.4",
-		"style-loader": "^1.0.0",
-		"tslint": "^5.18.0",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-react": "^4.0.0",
-		"typescript": "^3.5.3",
-		"url-loader": "^2.1.0",
-		"webpack": "^4.39.1",
-		"webpack-cli": "^3.3.6",
-		"webpack-dev-server": "^3.8.0"
-	},
+	"homepage": "https://github.com/rblackman/ts-react-spa-boilerplate",
+	"keywords": [
+		"boilerplate"
+	],
 	"license": "Apache-2.0",
 	"main": "index.js",
 	"name": "ts-react-spa-boilerplate",
 	"private": false,
-	"repository": "https://github.com/rblackman/ts-react-spa-boilerplate",
+	"repository": {
+		"type": "git",
+		"url": "github:rblackman/ts-react-spa-boilerplate"
+	},
 	"scripts": {
 		"build:dev": "cross-env NODE_ENV=development webpack --mode development --color",
 		"build:prod": "cross-env NODE_ENV=production webpack --mode production --color",
+		"init": "",
 		"start:dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --color",
 		"start:prod": "cross-env NODE_ENV=production webpack-dev-server --mode production --color"
 	},
