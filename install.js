@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
@@ -8,19 +7,8 @@ const settings = require('./webpack.settings.json');
 
 "use strict";
 
-function write(text, color, newLine) {
-	if (color === 'red') {
-		process.stdout.write(chalk.red(text));
-	}
-	else if (color === 'green') {
-		process.stdout.write(chalk.green(text));
-	}
-	else if (color === 'blue') {
-		process.stdout.write(chalk.blue(text));
-	}
-	else {
-		process.stdout.write(text);
-	}
+function write(text, newLine) {
+	process.stdout.write(text);
 	if (newLine === true || newLine === undefined) {
 		process.stdout.write(`\n`);
 	}
@@ -174,7 +162,7 @@ async function configWebpack() {
 		await initGit();
 	}
 
-	write('done', 'blue');
+	write('done');
 	process.exit(0);
 
 })();
