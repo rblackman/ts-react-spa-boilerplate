@@ -9,7 +9,7 @@
 		"meta": {
 			"description": "Boilerplate for creating a React SPA with TypeScript."
 		},
-		"template": "src/html/index.html",
+		"template": "src/html/index.ejs",
 		"title": "ts-react-spa-boilerplate"
 	},
 	"input": {
