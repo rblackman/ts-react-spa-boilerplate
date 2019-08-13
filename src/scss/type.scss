@@ -1,0 +1,40 @@
+@import './partials';
+
+html {
+	@include system-font;
+}
+
+h1 {
+	font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+	max-width: 65ch;
+}
+
+a {
+	&,
+	&:visited {
+		color: $theme-blue;
+	}
+	&:hover {
+		color: lighten($theme-blue, 5%);
+	}
+	&:active {
+		color: darken($theme-blue, 5%);
+	}
+	&[href^='tel:'] {
+		color: $theme-black;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

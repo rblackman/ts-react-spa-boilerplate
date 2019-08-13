@@ -1,0 +1,51 @@
+header {
+	color: $theme-white;
+	background: $theme-blue;
+
+	h1 {
+		font-size: 1.125rem;
+		margin: 0;
+		a,
+		a:hover,
+		a:visited,
+		a:active {
+			color: $theme-white;
+			text-decoration: none;
+		}
+	}
+
+	nav {
+		padding: ($page-padding / 2) ($page-padding * 2);
+		margin: 0 auto;
+		max-width: $max-page-width;
+		overflow: auto;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex: 1 1 auto;
+			flex-flow: row nowrap;
+			justify-content: flex-end;
+			> li {
+				list-style: none;
+			}
+		}
+
+		.nav-item {
+			&,
+			&:visited {
+				padding: 0 0.5rem;
+				display: block;
+				line-height: 1.6rem;
+				color: $theme-white;
+				text-decoration: none;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

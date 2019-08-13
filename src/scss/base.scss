@@ -1,0 +1,27 @@
+@import './partials';
+
+html {
+	font-size: $base-font-size;
+	box-sizing: border-box;
+	color: $theme-black;
+	background: $theme-white;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+main {
+	padding: $page-padding ($page-padding * 2);
+	max-width: $max-page-width;
+	margin: 0 auto;
+}

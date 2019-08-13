@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import '../scss/index.scss';
 import Router from './components/router';
 
 (() => {
@@ -9,6 +10,6 @@ import Router from './components/router';
 	if (htmlElement) {
 		ReactDom.render(jsxElement, htmlElement);
 	} else {
-		throw `Can\'t find HTML element: ${htmlElementName}`;
+		throw new Error(`Can\'t find HTML element: ${htmlElementName}`);
 	}
 })();
