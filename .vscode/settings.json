@@ -6,6 +6,6 @@
 		"LICENSE": true,
 		"node_modules": true,
 		"yarn.lock": true,
-		".boilerplate-config": false
+		".boilerplate-config": true
 	}
 }
