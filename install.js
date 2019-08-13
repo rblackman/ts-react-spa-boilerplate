@@ -116,10 +116,9 @@ async function handleGit() {
 	}
 }
 
-function writeSettings(newSettings) {
+function writeFile(file, data) {
 	return new Promise((resolve, reject) => {
-		const json = JSON.stringify(newSettings, null, '\t');
-		fs.writeFile('./webpack.settings.json', json, err => {
+		fs.writeFile(file, data, err => {
 			if (err) {
 				reject(new Error(err));
 			} else {
@@ -127,6 +126,11 @@ function writeSettings(newSettings) {
 			}
 		});
 	});
+}
+
+async function writeSettings(newSettings) {
+	const json = JSON.stringify(newSettings, null, '\t');
+	await writeFile('./webpack.settings.json', json);
 }
 
 async function configWebpack() {
@@ -149,17 +153,26 @@ async function configWebpack() {
 (async () => {
 	process.stdin.resume();
 	process.stdin.setEncoding('utf8');
+
+	if (fs.existsSync('./.boilerplate-config')) {
+		write('Already installed');
+		process.exit(0);
+	}
+
 	write('\nBeginning installation...\n');
 
 	const newGit = await handleGit();
 
-	await deleteFileInCurrentDir('install.js');
-	await deleteFileInCurrentDir('.npmrc');
-
-	await configWebpack();
-
 	if (newGit) {
+		await deleteFileInCurrentDir('install.js');
+		await configWebpack();
 		await initGit();
+	}
+
+	try {
+		await writeFile('.boilerplate-config', JSON.stringify({ configured: new Date() }))
+	} catch (ex) {
+		write(ex);
 	}
 
 	write('done');
